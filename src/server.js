@@ -53,7 +53,7 @@ server.get('/api/v1/muebles/:codigo', async (req, res) => {
 // Crea un nuevo registro
 server.post('/api/v1/muebles', async (req, res) => {
     const { nombre, precio, categoria } = req.body;
-    if (!nombre && !precio && !categoria) {
+    if (!nombre || !precio || !categoria) {
         return res.status(400).send(messageMissingData);
     }
 
